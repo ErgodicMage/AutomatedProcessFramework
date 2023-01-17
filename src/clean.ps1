@@ -1,0 +1,2 @@
+Set-Location C:\Development\EM\AutomatedProcessFramework
+Get-ChildItem -include bin,obj,packages,'.vs',TestResults -Force -Recurse | ForEach-Object ($_) { remove-item $_.fullname -Force -Recurse -ErrorAction SilentlyContinue -Verbose}

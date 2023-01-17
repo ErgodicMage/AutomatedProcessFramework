@@ -1,0 +1,19 @@
+{
+  "WaitForCompletionOnStop": false,
+  "ScheduledProcesses": [
+    {
+      "Name": "SimpleRunProcess",
+      "Schedule": "0 1 * * * *",
+      "Configuration": "RunProcessConfiguration.json",
+      "DllPath": null,
+      "RunProcess": "Scheduler.Tests.SimpleRunProcess"
+    },
+    {
+      "Name": "SimpleScanandRunProcess",
+      "Schedule": "0 1 * * * *",
+      "Configuration": "RunProcessConfiguration.json",
+      "DllPath": null,
+      "RunProcess": "Scheduler.Tests.SimpleScananRunProcess"
+    }
+  ]
+}
