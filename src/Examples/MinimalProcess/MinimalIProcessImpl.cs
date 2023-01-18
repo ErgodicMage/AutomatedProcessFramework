@@ -1,6 +1,6 @@
 using AutomatedProcess.Core;
 
-namespace MinimalProcess;
+namespace AutomatedProcess.MinimalProcess;
 
 public class MinimalIProcessImpl : IProcess
 {
@@ -8,7 +8,7 @@ public class MinimalIProcessImpl : IProcess
 
     public MinimalIProcessImpl() {}
 
-    public async Task<bool> Execute(CancellationToken cancellationToken)
+    public async Task<bool> Execute(CancellationToken cancellationToken = default(CancellationToken))
     {
         Console.WriteLine($"Running {ProcessName}");
 
