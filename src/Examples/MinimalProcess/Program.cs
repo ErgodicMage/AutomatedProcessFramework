@@ -2,4 +2,4 @@
 
 var process = new MinimalIProcessImpl();
 
-return await process.Execute() ? 0 : 1;
+return process.Execute().GetAwaiter().GetResult() ? 0 : 1;

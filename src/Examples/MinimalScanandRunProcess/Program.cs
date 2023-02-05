@@ -25,7 +25,7 @@ Console.CancelKeyPress += (s, e) =>
     e.Cancel = true;
 };
 
-var interuptableProcess = new MinimalScanandRunImpl();
+var interuptableProcess = new MinimalScanandRunImpl(true);
 
 try
 {

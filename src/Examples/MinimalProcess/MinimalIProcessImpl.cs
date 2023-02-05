@@ -1,4 +1,5 @@
 using AutomatedProcess.Core;
+using System.Runtime.Intrinsics.X86;
 
 namespace AutomatedProcess.MinimalProcess;
 
@@ -6,24 +7,20 @@ public class MinimalIProcessImpl : IProcess
 {
     public string ProcessName {get; init;} = "Minimal Process";
 
-    public MinimalIProcessImpl() {}
-
-    public async Task<bool> Execute(CancellationToken cancellationToken = default(CancellationToken))
+    public ValueTask<bool> Execute(CancellationToken cancellationToken = default)
     {
         Console.WriteLine($"Running {ProcessName}");
 
-        try
+        int cnt = 0;
+        while (cnt < 10)
         {
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                Console.WriteLine($"{ProcessName} running at: {DateTime.Now}");
-                await Task.Delay(1000, cancellationToken);
-            }
+            Console.WriteLine($"{ProcessName} running at: {DateTime.Now}");
+            Thread.Sleep(1000);
+            cnt++;
         }
-        catch
-        {
-            Console.WriteLine($"{ProcessName} stopped");
-        }
-        return true;
+
+        Console.WriteLine($"{ProcessName} stopped");
+
+        return new ValueTask<bool>(true);
     }
 }
