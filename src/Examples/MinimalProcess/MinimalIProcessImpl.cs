@@ -1,5 +1,4 @@
 using AutomatedProcess.Core;
-using System.Runtime.Intrinsics.X86;
 
 namespace AutomatedProcess.MinimalProcess;
 
