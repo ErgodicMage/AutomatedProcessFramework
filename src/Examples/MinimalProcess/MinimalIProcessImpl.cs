@@ -6,7 +6,7 @@ public class MinimalIProcessImpl : IProcess
 {
     public string ProcessName {get; init;} = "Minimal Process";
 
-    public Task<bool> Run(CancellationToken cancellationToken = default)
+    public async Task<bool> Run(CancellationToken? cancellationToken = default)
     {
         Console.WriteLine($"Running {ProcessName}");
 
@@ -14,12 +14,12 @@ public class MinimalIProcessImpl : IProcess
         while (cnt < 10)
         {
             Console.WriteLine($"{ProcessName} running at: {DateTime.Now}");
-            Thread.Sleep(1000);
+            await Task.Delay(1000, cancellationToken.GetValueOrDefault());
             cnt++;
         }
 
         Console.WriteLine($"{ProcessName} stopped");
 
-        return Task.FromResult(true);
+        return true;
     }
 }

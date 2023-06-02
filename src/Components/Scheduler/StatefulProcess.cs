@@ -13,7 +13,7 @@ public class StatefulProcess : IJob
         return Task.CompletedTask;
     }
 
-    public CancellationToken? CancelationToken() => _context?.CancellationToken;
+    public CancellationToken? CancellationToken() => _context?.CancellationToken;
 
     public string GetConfigFile() => _context?.JobDetail?.JobDataMap?[ScheduledProcess.ConfigurationName] as string ?? string.Empty;
 
