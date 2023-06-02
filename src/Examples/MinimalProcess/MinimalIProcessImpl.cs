@@ -6,7 +6,7 @@ public class MinimalIProcessImpl : IProcess
 {
     public string ProcessName {get; init;} = "Minimal Process";
 
-    public ValueTask<bool> Execute(CancellationToken cancellationToken = default)
+    public Task<bool> Execute(CancellationToken cancellationToken = default)
     {
         Console.WriteLine($"Running {ProcessName}");
 
@@ -20,6 +20,6 @@ public class MinimalIProcessImpl : IProcess
 
         Console.WriteLine($"{ProcessName} stopped");
 
-        return new ValueTask<bool>(true);
+        return Task.FromResult(true);
     }
 }
