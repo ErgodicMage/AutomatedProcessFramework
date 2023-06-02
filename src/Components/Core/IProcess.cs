@@ -3,5 +3,5 @@
 public interface IProcess
 {
     string ProcessName {get; init;}
-    Task<bool> Execute(CancellationToken cancellationToken = default);
+    Task<bool> Run(CancellationToken cancellationToken = default);
 }
