@@ -25,14 +25,12 @@ Console.CancelKeyPress += (s, e) =>
     e.Cancel = true;
 };
 
-var interuptableProcess = new MinimalScanandRunImpl(true);
-
 try
 {
     while (!cts.Token.IsCancellationRequested)
     {
-        if (await interuptableProcess.Scan(cts.Token))
-            await interuptableProcess.Run(cts.Token);
+        if (await process.Scan(cts.Token))
+            await process.Run(cts.Token);
         if (!cts.Token.IsCancellationRequested)
             await Task.Delay(1000, cts.Token);
     }
@@ -40,7 +38,7 @@ try
 catch
 {
     // at this point I'm not sure why this is being caught
-    Console.WriteLine($"{interuptableProcess.ProcessName} stopped");
+    Console.WriteLine($"{process.ProcessName} stopped");
 }
 
 Console.WriteLine("If you see this, the console application gracefully stopped gracefully");
